@@ -1,0 +1,21 @@
+*{
+	margin:0;
+	padding:0;
+}
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+}
+#components-layout-demo-fixed-sider .logo {
+	height: 32px;
+	background: rgba(255,255,255,.2);
+	margin: 16px;
+}
+.title{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: 微软雅黑;
+}
