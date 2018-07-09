@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {Layout,Menu,Icon}from 'antd';
-import 'antd/dist/antd.css'
-const {Header,Content,Footer,Sider} = Layout;
+import {Layout}from 'antd';
+import 'antd/dist/antd.css';
+import Nav from './components/Nav.js';
+import HeroTable from './components/HeroTable.js'
+const {Header,Content,Footer} = Layout;
+
 
 //整个面板组件
 class MainPanel extends React.Component {
@@ -67,19 +70,7 @@ class MainPanel extends React.Component {
 					<Header style={{ background: '#fff', padding: 0 }} />
 					<Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
 						<div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-							...
-							<br />
-							Really
-							<br />...<br />...<br />...<br />
-							long
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />...
-							<br />...<br />...<br />...<br />...<br />...<br />
-							content
+							<HeroTable></HeroTable>
 						</div>
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
@@ -90,33 +81,7 @@ class MainPanel extends React.Component {
 		);
 	}
 }
-//左侧导航条组件
-class Nav extends React.Component{
-	constructor(props){
-		console.log(props)
-		super(props);
-		this.state={
-			
-		}
-	}
-	render(){
-		return(
-			<Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
-				<div className="title">WeFGOWK信息录入</div>
-				<Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-					{
-						this.props.menuItemList.map((item,index)=>
-							<Menu.Item key={index}>
-								<Icon type="user"/>
-								<span className="nav-text">{item}</span>
-							</Menu.Item>
-						)
-					}
-				</Menu>
-			</Sider>
-		);
-	}
-}
+
 
 
   
