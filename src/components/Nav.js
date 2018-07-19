@@ -1,13 +1,27 @@
 import React from 'react';
 import {Layout,Menu,Icon}from 'antd';
+import {NavLink}from 'react-router-dom';
 const {Sider} = Layout;
 
 //左侧导航条组件
 class Nav extends React.Component{
 	constructor(props){
 		super(props);
-		this.state={
-			
+		this.state = {
+			// menuItemList:['英灵','礼装','素材','衣服'],
+			menuItemList:[{
+				name:'英灵',
+				url:'/hero',
+			},{
+				name:'礼装',
+				url:'/gift'
+			},{
+				name:'素材',
+				url:'/material'
+			},{
+				name:'衣服',
+				url:'/clothes'
+			}],
 		}
 	}
 	render(){
@@ -16,10 +30,12 @@ class Nav extends React.Component{
 				<div className="title">WeFGOWK信息录入</div>
 				<Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
 					{
-						this.props.menuItemList.map((item,index)=>
+						this.state.menuItemList.map((item,index)=>
 							<Menu.Item key={index}>
-								<Icon type="user"/>
-								<span className="nav-text">{item}</span>
+								<NavLink to={item.url}>
+									<Icon type="user"/>
+									<span className="nav-text">{item.name}</span>
+								</NavLink>
 							</Menu.Item>
 						)
 					}

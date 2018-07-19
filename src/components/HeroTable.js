@@ -1,7 +1,6 @@
 import React from 'react';
-import {Table}from 'antd';
+import {Table,Button}from 'antd';
 
-//左侧导航条组件
 class HeroTable extends React.Component{
 	constructor(props){
 		super(props);
@@ -19,16 +18,19 @@ class HeroTable extends React.Component{
 					title:'头像',
 					dataIndex:'avatar',
 					key:'avatar',
+					fixed:'left',
 				},
 				{
 					title:'编号',
 					dataIndex:'id',
-					key:'id'
+					key:'id',
+					fixed:'left',
 				},
 				{
 					title:'名称',
 					dataIndex:'name',
 					key:'name',
+					fixed:'left',
 				},
 				{
 					title:'CV',
@@ -60,14 +62,23 @@ class HeroTable extends React.Component{
 					title:'卡组',
 				},
 				{
-					title:''
-				}
+                    title: '操作',
+                    key: 'operation',
+                    fixed: 'right',
+                    width: 100,
+                    render: () => <span><a>编辑</a>|<a>删除</a></span>,
+                },
 			]
 		}
 	}
 	render(){
 		return(
-			<Table columns={this.state.columns} dataSource={this.state.heroList} ></Table>
+			<div>
+				<div className="TableMenu">
+					<Button type="primary">增加</Button>
+				</div>
+				<Table columns={this.state.columns} dataSource={this.state.heroList} ></Table>
+			</div>
 		);
 	}
 }
