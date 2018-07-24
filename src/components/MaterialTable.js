@@ -1,5 +1,6 @@
 import React from 'react'
 import {Table,Button} from 'antd'
+import MaterialPanel from './MaterialPanel.js'
 
 export default class MaterialTable extends React.Component{
     constructor(props){
@@ -9,7 +10,6 @@ export default class MaterialTable extends React.Component{
                 {
 					key:1,
 					avatar:'x',
-					id:'001',
                     name:'test测试',
                     rarity:'测试',
                     location:'测试',
@@ -20,12 +20,6 @@ export default class MaterialTable extends React.Component{
 					title:'头像',
 					dataIndex:'avatar',
                     key:'avatar',
-                    fixed:'left',
-				},
-				{
-					title:'编号',
-					dataIndex:'id',
-                    key:'id',
                     fixed:'left',
 				},
 				{
@@ -51,16 +45,29 @@ export default class MaterialTable extends React.Component{
                     width: 100,
                     render: () => <span><a>编辑</a>|<a>删除</a></span>,
                 },
-            ]
+            ],
+            panelVisible:false,
         }
+    }
+    handleAdd=()=>{
+        this.setState({
+            panelVisible:true
+        })
+    }
+    panelCancel(){
+        // console.log(this)
+        this.setState({
+            panelVisible:false
+        })
     }
     render(){
         return(
             <div>
 				<div className="TableMenu">
-					<Button type="primary">增加</Button>
+					<Button type="primary" onClick={this.handleAdd}>增加</Button>
 				</div>
 				<Table columns={this.state.columns} dataSource={this.state.materialList} ></Table>
+                <MaterialPanel visible={this.state.panelVisible} handleCancel={()=>this.panelCancel()}></MaterialPanel>
 			</div>
         )
     }  

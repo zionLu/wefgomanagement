@@ -1,5 +1,6 @@
 import React from 'react'
 import {Table,Button}from 'antd'
+import GiftPanel from './GiftPanel.js'
 
 export default class GiftTable extends React.Component{
     constructor(props){
@@ -11,12 +12,12 @@ export default class GiftTable extends React.Component{
 					avatar:'x',
 					id:'001',
                     name:'test测试',
-                    painter:'测试',
-                    isActivityGift:'测试',
+					painter:'测试',
+					description:'测试',    
+					isActivityGift:'测试',
+					activityEffect:'测试',
                     rarity:'测试',
                     skill:'测试',
-                    activityEffect:'测试',
-                    description:'测试',                 
 				}
 			],
 			columns:[
@@ -49,6 +50,11 @@ export default class GiftTable extends React.Component{
 					key:'isActivityGift',
 				},
 				{
+                    title:'活动效果',
+                    dataIndex:'activityEffect',
+                    key:'activityEffect',
+				},
+				{
 					title:'稀有度',
 					dataIndex:'rarity',
 					key:'rarity',
@@ -58,16 +64,6 @@ export default class GiftTable extends React.Component{
                     dataIndex:'skill',
                     key:'skill'
 				},
-				{
-                    title:'活动效果',
-                    dataIndex:'activityEffect',
-                    key:'activityEffect',
-				},
-				{
-                    title:'描述',
-                    dataIndex:'description',
-                    key:'description',
-                },
                 {
                     title: '操作',
                     key: 'operation',
@@ -75,16 +71,29 @@ export default class GiftTable extends React.Component{
                     width: 100,
                     render: () => <span><a>编辑</a>|<a>删除</a></span>,
                 },
-			]
+			],
+			panelVisible:false,
 		}
 	}
+	handleAdd=()=>{
+        this.setState({
+            panelVisible:true
+        })
+    }
+    panelCancel(){
+        // console.log(this)
+        this.setState({
+            panelVisible:false
+        })
+    }
 	render(){
 		return(
 			<div>
 				<div className="TableMenu">
-					<Button type="primary">增加</Button>
+					<Button type="primary" onClick={this.handleAdd}>增加</Button>
 				</div>
 				<Table columns={this.state.columns} dataSource={this.state.giftList} ></Table>
+				<GiftPanel visible={this.state.panelVisible} handleCancel={()=>this.panelCancel()}></GiftPanel>
 			</div>
 		);
 	} 
