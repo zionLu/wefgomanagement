@@ -3,6 +3,8 @@ import { Modal, Input, Form,Select,Upload, Icon, message,Radio,Rate,Button } fro
 const FormItem=Form.Item;
 const {TextArea}=Input;
 const RadioGroup = Radio.Group;
+const InputGroup = Input.Group;
+const Option = Select.Option;
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -30,7 +32,11 @@ class GiftPl extends React.Component{
             isActivityGift:'',
             activityEffect:'',
             rarity:'',
-            skill:[],
+            skill:[{
+                type:undefined,
+                min:undefined,
+                man:undefined,
+            }],
             photo:undefined,
         }
     }
@@ -46,6 +52,24 @@ class GiftPl extends React.Component{
                 avatarLoading: false,
             }));
         }
+    }
+    addSkill=()=>{
+        let newSkillList = this.state.skill
+        newSkillList.push({
+            type:undefined,
+            min:undefined,
+            man:undefined,
+        })
+        this.setState({
+            skill:newSkillList
+        })
+    }
+    removeSkill=(index)=>{
+        let newSkillList = this.state.skill
+        newSkillList.splice(index,1)
+        this.setState({
+            skill:newSkillList
+        })
     }
     render(){
         const { getFieldDecorator } = this.props.form;
@@ -132,17 +156,29 @@ class GiftPl extends React.Component{
                         )}
                     </FormItem>
                     <FormItem label="稀有度">
-                        {getFieldDecorator('rarity', {
-                            rules: [{
-                                required: true, message: '礼装稀有度不能为空!',
-                            }],
-                        })(
+                        {getFieldDecorator('rarity')(
                             <Rate allowClear={false} />
                         )}
                     </FormItem>
                     <FormItem label="技能效果">
                         <FormItem>
-                            <Button type="dashed" onClick={this.add} style={{ width: '100%' }}>
+                            {(this.state.skill.map((skill,index)=>
+                                <FormItem label={`技能效果${index+1}`} key={`skill${index}`}>
+                                    <InputGroup compact>
+                                        <Select placeholder="请选择技能类型" style={{width:"28%"}}>
+                                            <Option value="0">示例1</Option>
+                                            <Option value="1">示例2</Option>
+                                        </Select>
+                                        <Input style={{width:"28%"}} placeholder="未满破效果数值"></Input>
+                                        <Input style={{width:"28%"}} placeholder="满破效果数值"></Input>
+                                        {this.state.skill.length >= 1 ? (
+                                            <Button  type="danger" style={{width:"16%"}} onClick={()=>this.removeSkill(index)}>删除</Button>
+                                        ) : null}
+                                    </InputGroup>
+                                    
+                                </FormItem>
+                            ))}
+                            <Button type="dashed" onClick={this.addSkill} style={{ width: '100%' }}>
                                 <Icon type="plus" /> 添加技能效果
                             </Button>
                         </FormItem>
