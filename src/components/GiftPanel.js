@@ -163,7 +163,7 @@ class GiftPl extends React.Component{
                     <FormItem label="技能效果">
                         <FormItem>
                             {(this.state.skill.map((skill,index)=>
-                                <FormItem label={`技能效果${index+1}`} key={`skill${index}`}>
+                                <FormItem label={`技能效果${index+1}`} key={`skill${index}`} style={{marginBottom:0}}>
                                     <InputGroup compact>
                                         <Select placeholder="请选择技能类型" style={{width:"28%"}}>
                                             <Option value="0">示例1</Option>
@@ -178,7 +178,7 @@ class GiftPl extends React.Component{
                                     
                                 </FormItem>
                             ))}
-                            <Button type="dashed" onClick={this.addSkill} style={{ width: '100%' }}>
+                            <Button type="dashed" onClick={this.addSkill} style={{ width: '100%',marginTop:30 }}>
                                 <Icon type="plus" /> 添加技能效果
                             </Button>
                         </FormItem>
