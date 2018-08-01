@@ -86,6 +86,7 @@ class GiftPl extends React.Component{
                 onCancel={()=>this.props.handleCancel()}  
                 cancelText="取消"
                 okText="确认" 
+                maskClosable={false}
             >
                 <Form layout="vertical" hideRequiredMark>
                     <FormItem label="头像">
