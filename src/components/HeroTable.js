@@ -48,6 +48,12 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
+					title:'性别',
+					dataIndex:'sex',
+					key:'sex',
+					align:'center',
+				},
+				{
 					title:'职介',
 					dataIndex:'class',
 					key:'class',
@@ -60,15 +66,129 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
+					title:'卡组',
+					dataIndex:'card',
+					key:'card',
+					align:'center',
+				},
+				{
+					title:'阵营',
+					dataIndex:'camp',
+					key:'camp',
+					align:'center',
+				},
+				{
 					title:'特性',
+					dataIndex:'property',
+					key:'property',
 					align:'center',
 				},
 				{
 					title:'保有技能',
+					dataIndex:'keepSkill',
+					key:'keepSkill',
 					align:'center',
 				},
 				{
-					title:'卡组',
+					title:'基础HP',
+					dataIndex:'baseHP',
+					key:'baseHP',
+					align:'center',
+				},
+				{
+					title:'基础ATK',
+					dataIndex:'baseATK',
+					key:'baseATK',
+					align:'baseATK',
+				},
+				{
+					title:'满破HP',
+					dataIndex:'maxBreakHP',
+					key:'maxBreakHP',
+					align:'maxBreakHP'
+				},
+				{
+					title:'满破ATK',
+					dataIndex:'maxBreakATK',
+					key:'maxBreakATK',
+					align:'center',
+				},
+				{
+					title:'90级HP',
+					dataIndex:'maxLevelHP',
+					key:'maxLevelHP',
+					align:'maxLevelHP',
+				},
+				{
+					title:'90级ATK',
+					dataIndex:'maxLevelATK',
+					key:'maxLevelATK',
+					align:'center',
+				},
+				{
+					title:'100级HP',
+					dataIndex:'maxCupHP',
+					key:'maxCupHP',
+					align:'center'
+				},
+				{
+					title:'100级ATK',
+					dataIndex:'maxCupATK',
+					key:'maxCupATK',
+					align:'center'
+				},
+				{
+					title:'即死率',
+					dataIndex:'dieRate',
+					key:'dieRate',
+					align:'center'
+				},
+				{
+					title:'掉星律',
+					dataIndex:'creatStarRate',
+					key:'createStarRate',
+					align:'center',	
+				},
+				{
+					title:'暴击率',
+					dataIndex:'collectStarRate',
+					key:'collectStarRate',
+					align:'center'
+				},
+				{
+					title:'绿卡NP率',
+					dataIndex:'quickNP',
+					key:'quickNP',
+					align:'center',
+				},
+				{
+					title:'蓝卡NP率',
+					dataIndex:'artsNP',
+					key:'artsNP',
+					align:'center'
+				},
+				{
+					title:'红卡NP率',
+					dataIndex:'busterNP',
+					key:'busterNP',
+					align:'center'
+				},
+				{
+					title:'EXNP率',
+					dataIndex:'ExtraNP',
+					key:'ExtraNP',
+					align:'center',
+				},
+				{
+					title:'宝具NP率',
+					dataIndex:'PhantasmNP',
+					key:'PhantasmNP',
+					align:'center',
+				},
+				{
+					title:'被击NP',
+					dataIndex:'hitNP',
+					key:'hitNP',
 					align:'center',
 				},
 				{
