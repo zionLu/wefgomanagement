@@ -1,5 +1,7 @@
 import React from 'react'
 import {Table,Button} from 'antd'
+import ClothesPanel from './ClothesPanel.js'
+
 export default class ClothesTable extends React.Component{
     constructor(props){
         super(props)
@@ -8,7 +10,6 @@ export default class ClothesTable extends React.Component{
                 {
 					key:1,
 					avatar:'x',
-					id:'001',
                     name:'test测试',
                     skill1:'测试',
                     skill2:'测试',
@@ -24,17 +25,16 @@ export default class ClothesTable extends React.Component{
                     align:'center',
 				},
 				{
-					title:'编号',
-					dataIndex:'id',
-					key:'id',
-                    fixed:'left',
-                    align:'center',
-				},
-				{
 					title:'名称',
 					dataIndex:'name',
 					key:'name',
                     fixed:'left',
+                    align:'center',
+                },
+                {
+                    title:'描述',
+                    dataIndex:'description',
+                    key:'descruption',
                     align:'center',
                 },
                 {
@@ -63,16 +63,29 @@ export default class ClothesTable extends React.Component{
                     align:'center',
                     render: () => <span><Button size="small" type="primary">编辑</Button>&nbsp;&nbsp;&nbsp;<Button size="small" type="danger">删除</Button></span>,
                 },
-            ]
+            ],
+            panelVisible:false,
         }
+    }
+    handleAdd=()=>{
+        this.setState({
+            panelVisible:true
+        })
+    }
+    panelCancel(){
+        // console.log(this)
+        this.setState({
+            panelVisible:false
+        })
     }
     render(){
         return(
             <div>
 				<div className="TableMenu">
-					<Button type="primary">增加</Button>
+					<Button type="primary" onClick={this.handleAdd}>增加</Button>
 				</div>
 				<Table columns={this.state.columns} dataSource={this.state.clothesList} ></Table>
+                <ClothesPanel visible={this.state.panelVisible} handleCancel={()=>this.panelCancel()}></ClothesPanel>
 			</div>
         )
     }  
