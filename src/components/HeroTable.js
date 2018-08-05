@@ -48,6 +48,18 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
+					title:'地域',
+					dataIndex:'area',
+					key:'area',
+					align:'center'
+				},
+				{
+					title:'出处',
+					dataIndex:'source',
+					key:'source',
+					align:'center'
+				},
+				{
 					title:'性别',
 					dataIndex:'sex',
 					key:'sex',
@@ -78,11 +90,18 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
-					title:'特性',
+					title:'属性(DND九宫格)',
 					dataIndex:'property',
 					key:'property',
+					align:'center'
+				},
+				{
+					title:'特性',
+					dataIndex:'characteristic',
+					key:'characteristic',
 					align:'center',
 				},
+				
 				{
 					title:'保有技能',
 					dataIndex:'keepSkill',
@@ -150,9 +169,39 @@ class HeroTable extends React.Component{
 					align:'center',	
 				},
 				{
-					title:'暴击率',
-					dataIndex:'collectStarRate',
-					key:'collectStarRate',
+					title:'暴击权重',
+					dataIndex:'critWeight',
+					key:'critWeight',
+					align:'center'
+				},
+				{
+					title:'红卡HIT',
+					dataIndex:'busterHIT',
+					key:'busterHIT',
+					align:'center'	
+				},
+				{
+					title:'绿卡HIT',
+					dataIndex:'quickHIT',
+					key:'quickHIT',
+					align:'center'	
+				},
+				{
+					title:'蓝卡HIT',
+					dataIndex:'artsHIT',
+					key:'artsHIT',
+					align:'center'	
+				},
+				{
+					title:'EXHIT',
+					dataIndex:'extraHIT',
+					key:'extraHIT',
+					align:'center'	
+				},
+				{
+					title:'红卡NP率',
+					dataIndex:'busterNP',
+					key:'busterNP',
 					align:'center'
 				},
 				{
@@ -168,21 +217,15 @@ class HeroTable extends React.Component{
 					align:'center'
 				},
 				{
-					title:'红卡NP率',
-					dataIndex:'busterNP',
-					key:'busterNP',
-					align:'center'
-				},
-				{
 					title:'EXNP率',
-					dataIndex:'ExtraNP',
-					key:'ExtraNP',
+					dataIndex:'extraNP',
+					key:'extraNP',
 					align:'center',
 				},
 				{
 					title:'宝具NP率',
-					dataIndex:'PhantasmNP',
-					key:'PhantasmNP',
+					dataIndex:'phantasmNP',
+					key:'phantasmNP',
 					align:'center',
 				},
 				{
@@ -190,6 +233,30 @@ class HeroTable extends React.Component{
 					dataIndex:'hitNP',
 					key:'hitNP',
 					align:'center',
+				},
+				{
+					title:'技能1',
+					dataIndex:'skill1',
+					key:'skill1',
+					align:'center'
+				},
+				{
+					title:'技能2',
+					dataIndex:'skill2',
+					key:'skill2',
+					align:'center'
+				},
+				{
+					title:'技能3',
+					dataIndex:'skill3',
+					key:'skill3',
+					align:'center'
+				},
+				{
+					title:'宝具',
+					dataIndex:'phantasm',
+					key:'phantasm',
+					align:'center'
 				},
 				{
                     title: '操作',
