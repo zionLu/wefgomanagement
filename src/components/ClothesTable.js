@@ -11,6 +11,7 @@ export default class ClothesTable extends React.Component{
 					key:1,
 					avatar:'x',
                     name:'test测试',
+                    description:'测试',
                     skill1:'测试',
                     skill2:'测试',
                     skill3:'测试',
@@ -21,14 +22,12 @@ export default class ClothesTable extends React.Component{
 					title:'头像',
 					dataIndex:'avatar',
                     key:'avatar',
-                    fixed:'left',
                     align:'center',
 				},
 				{
 					title:'名称',
 					dataIndex:'name',
 					key:'name',
-                    fixed:'left',
                     align:'center',
                 },
                 {
@@ -84,7 +83,7 @@ export default class ClothesTable extends React.Component{
 				<div className="TableMenu">
 					<Button type="primary" onClick={this.handleAdd}>增加</Button>
 				</div>
-				<Table columns={this.state.columns} dataSource={this.state.clothesList} ></Table>
+				<Table columns={this.state.columns} dataSource={this.state.clothesList}></Table>
                 <ClothesPanel visible={this.state.panelVisible} handleCancel={()=>this.panelCancel()}></ClothesPanel>
 			</div>
         )

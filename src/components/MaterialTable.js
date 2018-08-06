@@ -20,14 +20,12 @@ export default class MaterialTable extends React.Component{
 					title:'头像',
 					dataIndex:'avatar',
                     key:'avatar',
-                    fixed:'left',
                     align:'center',
 				},
 				{
 					title:'名称',
 					dataIndex:'name',
                     key:'name',
-                    fixed:'left',
                     align:'center',
                 },
                 {

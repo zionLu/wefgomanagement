@@ -26,18 +26,46 @@ class HeroPl extends React.Component{
         this.state={
             avatar:undefined,
             id:'',
-            name:'',
-            painter:'',
-            description:'',
-            isActivityGift:'',
-            activityEffect:'',
+			name:'',
+			cv:'',
+			painter:'',
+			area:'',
+			source:'',
+			sex:'',
+			height:'',
+			weight:'',
+			class:'',
             rarity:'',
-            skill:[{
-                type:undefined,
-                min:undefined,
-                man:undefined,
-            }],
-            photo:undefined,
+            card:'',
+			camp:'',
+			property:'',
+			characteristic:'',
+			keepSkill:'',
+			baseHP:'',
+			baseATK:'',
+			maxBreakHP:'',
+			maxBreakATK:'',
+			maxLevelHP:'',
+			maxLevelATK:'',
+			maxCupHP:'',
+			maxCupATK:'',
+			dieRate:'',
+			createStarRate:'',
+			critWeight:'',
+			busterHIT:'',
+			quickHIT:'',
+			artsHIT:'',
+			extraHIT:'',
+			busterNP:'',
+			quickNP:'',
+			artsNP:'',
+			extraNP:'',
+			hoguNP:'',
+			hitNP:'',
+			skill1:'',
+			skill2:'',
+			skill3:'',
+			hogu:'',
         }
     }
     handleAvatarChange = (info) => {
@@ -53,24 +81,24 @@ class HeroPl extends React.Component{
             }));
         }
     }
-    addSkill=()=>{
-        let newSkillList = this.state.skill
-        newSkillList.push({
-            type:undefined,
-            min:undefined,
-            man:undefined,
-        })
-        this.setState({
-            skill:newSkillList
-        })
-    }
-    removeSkill=(index)=>{
-        let newSkillList = this.state.skill
-        newSkillList.splice(index,1)
-        this.setState({
-            skill:newSkillList
-        })
-    }
+    // addSkill=()=>{
+    //     let newSkillList = this.state.skill
+    //     newSkillList.push({
+    //         type:undefined,
+    //         min:undefined,
+    //         man:undefined,
+    //     })
+    //     this.setState({
+    //         skill:newSkillList
+    //     })
+    // }
+    // removeSkill=(index)=>{
+    //     let newSkillList = this.state.skill
+    //     newSkillList.splice(index,1)
+    //     this.setState({
+    //         skill:newSkillList
+    //     })
+    // }
     render(){
         const { getFieldDecorator } = this.props.form;
         const uploadButton = (
@@ -80,7 +108,7 @@ class HeroPl extends React.Component{
             </div>
         );
         return(
-            <Modal title="请输入礼装详细信息" 
+            <Modal title="请输入英灵详细信息" 
                 visible={this.props.visible}
                 onOk={this.handleCommit} 
                 onCancel={()=>this.props.handleCancel()}  
@@ -111,19 +139,28 @@ class HeroPl extends React.Component{
                     <FormItem label="编号">
                         {getFieldDecorator('id', {
                             rules: [{
-                                required: true, message: '礼装编号不能为空!',
+                                required: true, message: '英灵编号不能为空!',
                             }],
                         })(
-                            <Input placeholder="请输入礼装编号"/>
+                            <Input placeholder="请输入英灵编号"/>
                         )}
                     </FormItem>
-                    <FormItem label="名称">
+                    <FormItem label="姓名">
                         {getFieldDecorator('name', {
                             rules: [{
-                                required: true, message: '礼装名称不能为空!',
+                                required: true, message: '英灵姓名不能为空!',
                             }],
                         })(
-                            <Input placeholder="请输入礼装名称(与游戏严格一致)"/>
+                            <Input placeholder="请输入英灵姓名(与游戏严格一致)"/>
+                        )}
+                    </FormItem>
+                    <FormItem label="CV">
+                        {getFieldDecorator('cv', {
+                            rules: [{
+                                required: true, message: 'CV不能为空!',
+                            }],
+                        })(
+                            <Input placeholder="请输入CV名字"/>
                         )}
                     </FormItem>
                     <FormItem label="画师">
@@ -135,25 +172,75 @@ class HeroPl extends React.Component{
                             <Input placeholder="请输入画师名字"/>
                         )}
                     </FormItem>
-                    <FormItem label="描述">
-                        {getFieldDecorator('description', {
+                    <FormItem label="地域">
+                        {getFieldDecorator('area', {
                             rules: [{
-                                required: true, message: '请填写礼装描述',
+                                required: true, message: '地域不能为空!',
                             }],
                         })(
-                            <TextArea placeholder="请填写礼装描述"/>
+                            <Input placeholder="请输入英灵出自的地域(日本，欧洲等)"/>
                         )}
                     </FormItem>
-                    <FormItem label="是否活动礼装">
-                        {getFieldDecorator('isActivityGift', {
+                    <FormItem label="出处">
+                        {getFieldDecorator('source', {
                             rules: [{
-                                required: true, message: '请选择是否为活动礼装',
+                                required: true, message: '出处不能为空!',
+                            }],
+                        })(
+                            <Input placeholder="请输入英灵出处(神话,历史等)"/>
+                        )}
+                    </FormItem>
+                    <FormItem label="性别">
+                        {getFieldDecorator('sex', {
+                            rules: [{
+                                required: true, message: '请选择英灵性别',
                             }],
                         })(
                             <RadioGroup>
-                                <Radio value={1}>是</Radio>
-                                <Radio value={0}>否</Radio>
+                                <Radio value={1}>男</Radio>
+                                <Radio value={0}>女</Radio>
                             </RadioGroup>
+                        )}
+                    </FormItem>
+                    <FormItem label="身高">
+                        {getFieldDecorator('height', {
+                            rules: [{
+                                required: true, message: '请填写身高!',
+                            }],
+                        })(
+                            <Input placeholder="请填写身高,单位转化为m"/>
+                        )}
+                    </FormItem>
+                    <FormItem label="体重">
+                        {getFieldDecorator('source', {
+                            rules: [{
+                                required: true, message: '请填写体重!',
+                            }],
+                        })(
+                            <Input placeholder="请填写体重,单位转化为kg"/>
+                        )}
+                    </FormItem>
+                    <FormItem label="职介">
+                        {getFieldDecorator('class', {
+                            rules: [{
+                                required: true, message: '职介不能为空',
+                            }],
+                        })(
+                            <Select placeholder="请选择英灵职介">
+                                <Option value="Shilder">Shilder 盾兵</Option>
+                                <Option value="Saber">Saber 剑兵</Option>
+                                <Option value="Lancer">Lancer 枪兵</Option>
+                                <Option value="Archer">Archer 弓兵</Option>
+                                <Option value="Rider">Rider 骑兵</Option>
+                                <Option value="assassin">assassin 刺客(暗匿者)</Option>
+                                <Option value="Caster">Caster 魔术师</Option>
+                                <Option value="Basaker">Basaker 狂战士</Option>
+                                <Option value="Ruler">Ruler 裁定者</Option>
+                                <Option value="Avanger">Avanger 复仇者</Option>
+                                <Option value="MoonCancer">Moon Cancer</Option>
+                                <Option value="Eltergo">Eltergo</Option>
+                                <Option value="Foreigner">Foreigner 外来者</Option>
+                            </Select>
                         )}
                     </FormItem>
                     <FormItem label="稀有度">
@@ -161,7 +248,21 @@ class HeroPl extends React.Component{
                             <Rate allowClear={false} />
                         )}
                     </FormItem>
-                    <FormItem label="技能效果">
+                    <FormItem label="阵营(天地人星)">
+                        {getFieldDecorator('camp', {
+                            rules: [{
+                                required: true, message: '请选择英灵阵营',
+                            }],
+                        })(
+                            <RadioGroup>
+                                <Radio value={0}>天</Radio>
+                                <Radio value={1}>地</Radio>
+                                <Radio value={2}>人</Radio>
+                                <Radio value={3}>星</Radio>
+                            </RadioGroup>
+                        )}
+                    </FormItem>
+                    {/* <FormItem label="技能效果">
                         <FormItem>
                             {(this.state.skill.map((skill,index)=>
                                 <FormItem label={`技能效果${index+1}`} key={`skill${index}`} style={{marginBottom:0}}>
@@ -183,7 +284,7 @@ class HeroPl extends React.Component{
                                 <Icon type="plus" /> 添加技能效果
                             </Button>
                         </FormItem>
-                    </FormItem>
+                    </FormItem> */}
                 </Form>
             </Modal>
         )

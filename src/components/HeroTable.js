@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table,Button}from 'antd';
+import HeroPanel from './HeroPanel.js'
 
 class HeroTable extends React.Component{
 	constructor(props){
@@ -10,7 +11,46 @@ class HeroTable extends React.Component{
 					key:1,
 					avatar:'x',
 					id:'001',
-					name:'test测试'
+					name:'test测试',
+					cv:'test测试',
+					painter:'test测试',
+					area:'test测试',
+					source:'test测试',
+					sex:'test测试',
+					height:'test测试',
+					weight:'test测试',
+					class:'test测试',
+					rarity:'test测试',
+					card:'卡组',
+					camp:'test测试',
+					property:'test测试',
+					characteristic:'test测试',
+					keepSkill:'test测试',
+					baseHP:'test测试',
+					baseATK:'test测试',
+					maxBreakHP:'test测试',
+					maxBreakATK:'test测试',
+					maxLevelHP:'test测试',
+					maxLevelATK:'test测试',
+					maxCupHP:'test测试',
+					maxCupATK:'test测试',
+					dieRate:'test测试',
+					createStarRate:'test测试',
+					critWeight:'test测试',
+					busterHIT:'test测试',
+					quickHIT:'test测试',
+					artsHIT:'test测试',
+					extraHIT:'test测试',
+					busterNP:'test测试',
+					quickNP:'test测试',
+					artsNP:'test测试',
+					extraNP:'test测试',
+					hoguNP:'test测试',
+					hitNP:'test测试',
+					skill1:'test测试',
+					skill2:'test测试',
+					skill3:'test测试',
+					hogu:'test测试',
 				}
 			],
 			columns:[
@@ -29,7 +69,7 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
-					title:'名称',
+					title:'姓名',
 					dataIndex:'name',
 					key:'name',
 					fixed:'left',
@@ -37,8 +77,8 @@ class HeroTable extends React.Component{
 				},
 				{
 					title:'CV',
-					dataIndex:'CV',
-					key:'CV',
+					dataIndex:'cv',
+					key:'cv',
 					align:'center',
 				},
 				{
@@ -66,6 +106,18 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
+					title:'身高',
+					dataIndex:'height',
+					key:'height',
+					align:'center'
+				},
+				{
+					title:'体重',
+					dataIndex:'weight',
+					key:'weight',
+					align:'center'
+				},
+				{
 					title:'职介',
 					dataIndex:'class',
 					key:'class',
@@ -84,7 +136,7 @@ class HeroTable extends React.Component{
 					align:'center',
 				},
 				{
-					title:'阵营',
+					title:'阵营(天地人星)',
 					dataIndex:'camp',
 					key:'camp',
 					align:'center',
@@ -118,13 +170,13 @@ class HeroTable extends React.Component{
 					title:'基础ATK',
 					dataIndex:'baseATK',
 					key:'baseATK',
-					align:'baseATK',
+					align:'center',
 				},
 				{
 					title:'满破HP',
 					dataIndex:'maxBreakHP',
 					key:'maxBreakHP',
-					align:'maxBreakHP'
+					align:'center'
 				},
 				{
 					title:'满破ATK',
@@ -136,7 +188,7 @@ class HeroTable extends React.Component{
 					title:'90级HP',
 					dataIndex:'maxLevelHP',
 					key:'maxLevelHP',
-					align:'maxLevelHP',
+					align:'center',
 				},
 				{
 					title:'90级ATK',
@@ -164,7 +216,7 @@ class HeroTable extends React.Component{
 				},
 				{
 					title:'掉星律',
-					dataIndex:'creatStarRate',
+					dataIndex:'createStarRate',
 					key:'createStarRate',
 					align:'center',	
 				},
@@ -224,8 +276,8 @@ class HeroTable extends React.Component{
 				},
 				{
 					title:'宝具NP率',
-					dataIndex:'phantasmNP',
-					key:'phantasmNP',
+					dataIndex:'hoguNP',
+					key:'hoguNP',
 					align:'center',
 				},
 				{
@@ -254,8 +306,8 @@ class HeroTable extends React.Component{
 				},
 				{
 					title:'宝具',
-					dataIndex:'phantasm',
-					key:'phantasm',
+					dataIndex:'hogu',
+					key:'hogu',
 					align:'center'
 				},
 				{
@@ -266,16 +318,29 @@ class HeroTable extends React.Component{
 					align:'center',
                     render: () => <span><Button size="small" type="primary">编辑</Button>&nbsp;&nbsp;&nbsp;<Button size="small" type="danger">删除</Button></span>,
                 },
-			]
+			],
+			panelVisible:false,
 		}
 	}
+	handleAdd=()=>{
+        this.setState({
+            panelVisible:true
+        })
+    }
+    panelCancel(){
+        // console.log(this)
+        this.setState({
+            panelVisible:false
+        })
+    }
 	render(){
 		return(
 			<div>
 				<div className="TableMenu">
-					<Button type="primary">增加</Button>
+					<Button type="primary" onClick={this.handleAdd}>增加</Button>
 				</div>
-				<Table columns={this.state.columns} dataSource={this.state.heroList} ></Table>
+				<Table columns={this.state.columns} dataSource={this.state.heroList} scroll={{ x: true}}></Table>
+				<HeroPanel visible={this.state.panelVisible} handleCancel={()=>this.panelCancel()}></HeroPanel>
 			</div>
 		);
 	}

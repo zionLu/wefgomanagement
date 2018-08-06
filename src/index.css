@@ -23,3 +23,4 @@ body {
 	text-align: left;
 	margin-bottom: 18px;
 }
+.ant-table td { white-space: nowrap; }
