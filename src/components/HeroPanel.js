@@ -65,7 +65,10 @@ class HeroPl extends React.Component{
 			skill1:'',
 			skill2:'',
 			skill3:'',
-			hogu:'',
+            hogu:'',
+            
+
+            
         }
     }
     handleAvatarChange = (info) => {
@@ -248,6 +251,25 @@ class HeroPl extends React.Component{
                             <Rate allowClear={false} />
                         )}
                     </FormItem>
+                    <FormItem label="卡组">
+                        <InputGroup compact>
+                            <Select placeholder="请选择红卡数量" style={{width:"33.3%"}}>
+                                <Option value="0">1张</Option>
+                                <Option value="1">2张</Option>
+                                <Option value="2">3张</Option>
+                            </Select>
+                            <Select placeholder="请选择绿卡数量" style={{width:"33.3%"}}>
+                                <Option value="0">1张</Option>
+                                <Option value="1">2张</Option>
+                                <Option value="2">3张</Option>
+                            </Select>
+                            <Select placeholder="请选择蓝卡数量" style={{width:"33.3%"}}>
+                                <Option value="0">1张</Option>
+                                <Option value="1">2张</Option>
+                                <Option value="2">3张</Option>
+                            </Select>
+                        </InputGroup>
+                    </FormItem>
                     <FormItem label="阵营(天地人星)">
                         {getFieldDecorator('camp', {
                             rules: [{
@@ -259,6 +281,25 @@ class HeroPl extends React.Component{
                                 <Radio value={1}>地</Radio>
                                 <Radio value={2}>人</Radio>
                                 <Radio value={3}>星</Radio>
+                            </RadioGroup>
+                        )}
+                    </FormItem>
+                    <FormItem label="属性(DND九宫格)">
+                        {getFieldDecorator('property', {
+                            rules: [{
+                                required: true, message: '请选择英灵属性',
+                            }],
+                        })(
+                            <RadioGroup>
+                                <Radio value={0}>秩序·善</Radio>
+                                <Radio value={1}>秩序·中庸</Radio>
+                                <Radio value={2}>秩序·恶</Radio>
+                                <Radio value={3}>中立·善</Radio>
+                                <Radio value={4}>中立·中庸</Radio>
+                                <Radio value={5}>中立·恶</Radio>
+                                <Radio value={6}>混沌·善</Radio>
+                                <Radio value={7}>混沌·中庸</Radio>
+                                <Radio value={8}>混沌·恶</Radio>
                             </RadioGroup>
                         )}
                     </FormItem>
