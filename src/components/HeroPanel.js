@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Input, Form,Select,Upload, Icon, message,Radio,Rate,Button } from 'antd';
+import { Modal, Input, Form,Select,Upload, Icon, message,Radio,Rate,Button,Transfer } from 'antd';
 const FormItem=Form.Item;
 const {TextArea}=Input;
 const RadioGroup = Radio.Group;
@@ -67,7 +67,17 @@ class HeroPl extends React.Component{
 			skill3:'',
             hogu:'',
             
-
+            //辅助数据
+            remainCharacteristic:[
+                {
+                    key: 1,
+                    title: `测试特性1`,
+                    description: `测试特性1描述`,
+                },{
+                    key: 2,
+                    title: `测试特性2`,
+                    description: `测试特性2描述`,
+                }]
             
         }
     }
@@ -302,6 +312,12 @@ class HeroPl extends React.Component{
                                 <Radio value={8}>混沌·恶</Radio>
                             </RadioGroup>
                         )}
+                    </FormItem>
+                    <FormItem label="特性">
+                        <Transfer
+                            dataSource={this.state.remainCharacteristic}
+                            titles={['未选择', '已选择']}
+                            render={item=>item.title}/>
                     </FormItem>
                     {/* <FormItem label="技能效果">
                         <FormItem>
