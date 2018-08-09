@@ -39,8 +39,8 @@ class HeroPl extends React.Component{
             card:'',
 			camp:'',
 			property:'',
-			characteristic:'',
-			keepSkill:'',
+			characteristic:[],
+			keepSkill:[],
 			baseHP:'',
 			baseATK:'',
 			maxBreakHP:'',
@@ -70,15 +70,26 @@ class HeroPl extends React.Component{
             //辅助数据
             remainCharacteristic:[
                 {
-                    key: 1,
-                    title: `测试特性1`,
-                    description: `测试特性1描述`,
+                    key: '神性',
+                    title: '神性',
+                    description: '神性',
                 },{
-                    key: 2,
-                    title: `测试特性2`,
-                    description: `测试特性2描述`,
-                }]
-            
+                    key: '死灵',
+                    title: '死灵',
+                    description: '死灵',
+                }
+            ],
+            remainKeepSkill:[
+                {
+                    key: '乘骑',
+                    title: '乘骑',
+                    description: '',
+                },{
+                    key: '对魔力',
+                    title: '对魔力',
+                    description: '',
+                }
+            ],
         }
     }
     handleAvatarChange = (info) => {
@@ -93,6 +104,9 @@ class HeroPl extends React.Component{
                 avatarLoading: false,
             }));
         }
+    }
+    handleCharacteristicChange = (nextTargetKeys, direction, moveKeys) => {
+        this.setState({ characteristic: nextTargetKeys });
     }
     // addSkill=()=>{
     //     let newSkillList = this.state.skill
@@ -316,8 +330,20 @@ class HeroPl extends React.Component{
                     <FormItem label="特性">
                         <Transfer
                             dataSource={this.state.remainCharacteristic}
+                            targetKeys={this.state.characteristic}
                             titles={['未选择', '已选择']}
-                            render={item=>item.title}/>
+                            render={item=>item.title}
+                            onChange={this.handleCharacteristicChange}
+                            />
+                    </FormItem>
+                    <FormItem label="保有技能">
+                        <Transfer
+                            dataSource={this.state.remainKeepSkill}
+                            targetKeys={this.state.keepskill}
+                            titles={['未选择', '已选择']}
+                            render={item=>item.title}
+                            onChange={this.handleKeepSkillChange}
+                            />
                     </FormItem>
                     {/* <FormItem label="技能效果">
                         <FormItem>
